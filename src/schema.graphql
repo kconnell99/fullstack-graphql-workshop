@@ -12,11 +12,16 @@ type Song {
 type Playlist {
   id: String
   name: String
-  followers: [User]
   songs: [Song]
+  followers: [User]
 }
 
 type Query {
-  songs(first: Int): [Song!]!
+  songs(first: Int, last: Int, id: String): [Song!]!
+  playlists(first: Int): [Playlist!]!
+  users(email: String): [User!]!
+  randomSong: Song!
 }
+
+
 
